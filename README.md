@@ -1,46 +1,128 @@
-# Getting Started with Create React App
+# Frontend Gestion Entreprise
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Interface utilisateur React pour le système de gestion de paie d'entreprise.
 
-## Available Scripts
+## 🚀 Démarrage rapide
 
-In the project directory, you can run:
+### Prérequis
+- Node.js 16+
+- Backend en cours d'exécution sur `http://localhost:5000`
 
-### `npm start`
+### Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+# Installer les dépendances
+npm install
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Démarrer l'application en mode développement
+npm start
+```
 
-### `npm test`
+L'application sera accessible sur `http://localhost:3000`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🔐 Comptes de test
 
-### `npm run build`
+| Rôle | Email | Mot de passe |
+|------|-------|-------------|
+| Super Admin | superadmin@example.com | superadmin123 |
+| Admin | admin@techcorp.sn | admin123 |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📊 Fonctionnalités
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Dashboard
+- **Statistiques en temps réel** : employés, cycles, bulletins, montants
+- **Graphiques dynamiques** :
+  - Répartition des employés (actifs/inactifs)
+  - État des cycles de paie
+  - Statut des paiements
+  - Évolution mensuelle
+- **Alertes intelligentes** : paiements en attente, cycles actifs
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Gestion des employés
+- Liste des employés avec filtres
+- Détails complets par employé
+- Historique des contrats
+- Activation/désactivation des employés
 
-### `npm run eject`
+### Cycles de paie
+- Création et gestion des cycles
+- Génération automatique des bulletins
+- Suivi des statuts (Brouillon → Approuvé → Clôturé)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Bulletins de salaire
+- Consultation des bulletins par employé
+- Suivi des paiements
+- Génération de documents
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🛠️ Technologies utilisées
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- **React 18** - Framework frontend
+- **TypeScript** - Typage statique
+- **Tailwind CSS** - Framework CSS
+- **React Router** - Routing
+- **Axios** - Requêtes HTTP
+- **Recharts** - Graphiques
+- **React Hook Form** - Gestion des formulaires
+- **Zod** - Validation des données
+- **Lucide React** - Icônes
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 📁 Structure du projet
 
-## Learn More
+```
+src/
+├── components/          # Composants réutilisables
+│   ├── Auth/           # Composants d'authentification
+│   └── Layout/         # Layout et navigation
+├── contexts/           # Contextes React (Auth)
+├── pages/              # Pages principales
+├── services/           # Services API
+└── types/              # Types TypeScript
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🔗 Connexion au backend
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+L'application se connecte automatiquement au backend sur `http://localhost:5000`.
+
+### Endpoints utilisés :
+- `POST /api/auth/login` - Connexion
+- `GET /api/employes` - Liste des employés
+- `GET /api/cycles` - Cycles de paie
+- `GET /api/dashboard/stats` - Statistiques
+
+## 🎨 Personnalisation
+
+### Thème
+Le thème est configuré dans `tailwind.config.js` avec des couleurs primaires et secondaires.
+
+### Styles personnalisés
+Ajoutez vos styles dans `src/index.css` dans la section `@layer components`.
+
+## 🚀 Déploiement
+
+```bash
+# Build pour la production
+npm run build
+
+# Les fichiers sont générés dans le dossier `build/`
+```
+
+## 📝 Scripts disponibles
+
+- `npm start` - Démarre le serveur de développement
+- `npm run build` - Build pour la production
+- `npm test` - Lance les tests
+- `npm run eject` - Éjection de Create React App
+
+## 🐛 Dépannage
+
+### Erreur de connexion au backend
+- Vérifiez que le backend tourne sur le port 5000
+- Vérifiez les CORS dans la configuration backend
+
+### Problèmes d'authentification
+- Vérifiez le token JWT dans le localStorage
+- Essayez de vous reconnecter
+
+### Graphiques ne s'affichent pas
+- Vérifiez que les données sont correctement récupérées depuis l'API
+- Vérifiez la console pour les erreurs JavaScript
